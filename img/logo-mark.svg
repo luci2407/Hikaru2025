@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="hikaru2025">
+  <defs>
+    <linearGradient id="hk-g" x1="10" y1="8" x2="92" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e98aa2"/>
+      <stop offset=".45" stop-color="#d64d6c"/>
+      <stop offset="1" stop-color="#e2786a"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <path d="M54 7C79 6 96 25 93 50C90 76 70 95 45 93C20 91 5 72 7 47C9 23 30 8 54 7Z" fill="url(#hk-g)"/>
+    <path d="M50 25C52 42 57 48 74 50C57 52 52 58 50 75C48 58 43 52 26 50C43 48 48 42 50 25Z" fill="#fff8f4"/>
+    <path d="M72 20C72.8 26 74 27.2 80 28C74 28.8 72.8 30 72 36C71.2 30 70 28.8 64 28C70 27.2 71.2 26 72 20Z" fill="#fff8f4" opacity=".9"/>
+  </g>
+</svg>

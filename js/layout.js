@@ -11,7 +11,7 @@ function renderHeader(data, active) {
   const header = $('#site-header');
   header.innerHTML = `
     <div class="nav-inner">
-      <a class="brand" href="/">${esc(S.brand)}</a>
+      <a class="brand" href="/"><img class="brand-mark" src="/img/logo-mark.svg" alt="" width="34" height="34"><span>${esc(S.brand)}</span></a>
       <nav class="nav-links" id="nav-links" aria-label="Principal">
         ${services.map((s) => `<a href="${serviceHref(s)}" ${active === `s:${s.slug}` ? 'aria-current="page"' : ''}>${esc(s.title)}</a>`).join('')}
         <a href="/html/nosotros.html" ${active === 'about' ? 'aria-current="page"' : ''}>Nosotros</a>
@@ -40,7 +40,7 @@ function renderFooter(data) {
   $('#site-footer').innerHTML = `
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="/">${esc(S.brand)}</a>
+        <a class="brand" href="/"><img class="brand-mark" src="/img/logo-mark.svg" alt="" width="34" height="34"><span>${esc(S.brand)}</span></a>
         <p class="text">${esc(S.hero_subtitle)}</p>
       </div>
       <div>

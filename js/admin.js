@@ -120,7 +120,7 @@ const STATUS = [['nueva', 'Nueva'], ['en_proceso', 'En proceso'], ['cerrada', 'C
 async function init() {
   if (!(await isConfigured())) {
     app.innerHTML = `<main class="auth"><div class="auth-card notice">
-      <span class="brand">hikaru2025</span>
+      <span class="brand"><img class="brand-mark" src="/img/logo-mark.svg" alt="" width="34" height="34"><span>hikaru2025</span></span>
       <p class="eyebrow">Panel de administración</p>
       <h1 class="display h3">Conecta Supabase para usar el panel</h1>
       <p class="text">En Vercel, ve a <strong>Settings → Environment Variables</strong> y agrega <strong>SUPABASE_URL</strong> y <strong>SUPABASE_ANON_KEY</strong> (la anon / publishable key). Después vuelve a desplegar el sitio.</p>
@@ -153,7 +153,7 @@ async function route(session) {
 function renderLogin() {
   app.innerHTML = `<main class="auth">
     <form class="auth-card" id="login">
-      <a class="brand" href="/">hikaru2025</a>
+      <a class="brand" href="/"><img class="brand-mark" src="/img/logo-mark.svg" alt="" width="34" height="34"><span>hikaru2025</span></a>
       <p class="eyebrow">Panel de administración</p>
       <h1 class="display h2">Inicia sesión</h1>
       <label class="field"><span>Correo</span><input type="email" name="email" required autocomplete="username"></label>
@@ -194,7 +194,7 @@ function renderLogin() {
 
 function renderNotAdmin() {
   app.innerHTML = `<main class="auth"><div class="auth-card notice">
-    <span class="brand">hikaru2025</span>
+    <span class="brand"><img class="brand-mark" src="/img/logo-mark.svg" alt="" width="34" height="34"><span>hikaru2025</span></span>
     <h1 class="display h3">Tu usuario aún no es administrador</h1>
     <p class="text">Ejecuta esto en Supabase &gt; SQL Editor y recarga la página:</p>
     <code>insert into public.admins (user_id) values ('${esc(user.id)}');</code>
@@ -214,7 +214,7 @@ async function loadServices() {
 function renderShell() {
   app.innerHTML = `<div class="admin-shell">
     <aside class="admin-side">
-      <a class="brand" href="/" target="_blank" rel="noopener">hikaru2025</a>
+      <a class="brand" href="/" target="_blank" rel="noopener"><img class="brand-mark" src="/img/logo-mark.svg" alt="" width="34" height="34"><span>hikaru2025</span></a>
       <p class="eyebrow">Admin</p>
       <nav class="admin-nav">
         ${TABS.map((t) => `<button type="button" data-tab="${t.id}">${t.label}<span class="count" data-count="${t.id}"></span></button>`).join('')}

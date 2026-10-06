@@ -18,7 +18,9 @@ function isSecretKey(key) {
 }
 
 module.exports = (req, res) => {
-  const url = (process.env.SUPABASE_URL || '').trim();
+  // Acepta la URL aunque se haya pegado con /rest/v1/ u otra ruta al final
+  let url = (process.env.SUPABASE_URL || '').trim();
+  try { if (url) url = new URL(url).origin; } catch { url = ''; }
   const anonKey = (process.env.SUPABASE_ANON_KEY || '').trim();
 
   if (anonKey && isSecretKey(anonKey)) {
