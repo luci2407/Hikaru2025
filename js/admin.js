@@ -173,7 +173,22 @@ function renderLogin() {
       password: form.password.value,
     });
     btn.disabled = false;
-    if (error) $('[data-msg]', form).textContent = 'Correo o contraseña incorrectos.';
+    if (error) {
+      console.error(error);
+      const code = error.code || '';
+      const msg = String(error.message || '');
+      let text = `No se pudo iniciar sesión: ${msg || 'error desconocido'}.`;
+      if (code === 'invalid_credentials' || /invalid login credentials/i.test(msg)) {
+        text = 'Correo o contraseña incorrectos.';
+      } else if (code === 'email_not_confirmed' || /not confirmed/i.test(msg)) {
+        text = 'Tu correo no está confirmado. En Supabase > Authentication > Users, confirma el usuario o créalo con “Auto Confirm User”.';
+      } else if (error.status === 404 || /fetch|network|json/i.test(msg)) {
+        text = 'No se pudo conectar con Supabase. Revisa que SUPABASE_URL en Vercel sea solo https://xxxx.supabase.co';
+      } else if (/api key|apikey/i.test(msg)) {
+        text = 'La llave de Supabase no es válida. Revisa SUPABASE_ANON_KEY en Vercel.';
+      }
+      $('[data-msg]', form).textContent = text;
+    }
   });
 }
 
